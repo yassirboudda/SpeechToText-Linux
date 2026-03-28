@@ -110,6 +110,13 @@ class SpeechToTextApp:
 
         self.menu.append(Gtk.SeparatorMenuItem())
 
+        # ── Visual Editor ──
+        self.editor_item = Gtk.MenuItem(label='📝  Visual Editor')
+        self.editor_item.connect('activate', self._on_open_editor)
+        self.menu.append(self.editor_item)
+
+        self.menu.append(Gtk.SeparatorMenuItem())
+
         # ── Quit ──
         quit_item = Gtk.MenuItem(label='Quit')
         quit_item.connect('activate', lambda _: Gtk.main_quit())
@@ -206,10 +213,15 @@ class SpeechToTextApp:
                 self.transcription += '\n' + text
             else:
                 self.transcription = text
-            self.status_item.set_label('✓ Transcription complete')
+            # Auto-copy to clipboard so user can Ctrl+V immediately
+            clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
+            clipboard.set_text(self.transcription.strip(), -1)
+            clipboard.store()
+            self.status_item.set_label('✓ Copied to clipboard – ready to paste')
         else:
             self.status_item.set_label('No speech detected')
         self._refresh_menu()
+        self._sync_editor()
 
     def _on_transcribe_err(self, error):
         self.is_transcribing = False
@@ -258,6 +270,30 @@ class SpeechToTextApp:
     def _on_delete(self, _item):
         self.transcription = ''
         self.status_item.set_label('Transcription deleted')
+        self._refresh_menu()
+        self._sync_editor()
+
+    # ── Visual Editor window ──
+
+    def _on_open_editor(self, _item):
+        """Open or show the visual editor window."""
+        if not hasattr(self, 'editor_window') or self.editor_window is None:
+            from speechtotext.window import EditorWindow
+            self.editor_window = EditorWindow(self)
+        self.editor_window.set_text(self.transcription)
+        self.editor_window.show_all()
+        self.editor_window.present()
+
+    def _sync_editor(self):
+        """Push current transcription text to the editor window if open."""
+        if hasattr(self, 'editor_window') and self.editor_window is not None:
+            if self.editor_window.get_visible():
+                self.editor_window.set_text(self.transcription)
+
+    def update_transcription_from_editor(self, text):
+        """Called by the editor window when the user edits text."""
+        self.transcription = text
+        self._refresh_menu()
         self._refresh_menu()
 
 

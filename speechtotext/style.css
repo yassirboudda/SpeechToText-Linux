@@ -122,6 +122,24 @@ window {
     background-image: none;
 }
 
+/* Delete button */
+.delete-button {
+    background-color: #313244;
+    background-image: none;
+    color: #ef4444;
+    border: 1px solid #45475a;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.delete-button:hover {
+    background-color: #ef4444;
+    background-image: none;
+    color: white;
+}
+
 /* Separator */
 separator {
     background-color: #313244;
