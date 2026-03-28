@@ -1,0 +1,129 @@
+/* SpeechToText - Dark modern theme inspired by AMI Finance Voxtral UI */
+
+/* Main window */
+window {
+    background-color: #1e1e2e;
+}
+
+/* Header */
+.header-title {
+    color: #cdd6f4;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.header-subtitle {
+    color: #a6adc8;
+    font-size: 12px;
+}
+
+.icon-circle {
+    background-color: #313244;
+    border-radius: 12px;
+    border: none;
+    padding: 4px;
+}
+
+/* Record button */
+.record-button {
+    background-color: #7c3aed;
+    background-image: none;
+    color: white;
+    border-radius: 40px;
+    border: none;
+    min-width: 80px;
+    min-height: 80px;
+    font-size: 28px;
+}
+
+.record-button:hover {
+    background-color: #6d28d9;
+    background-image: none;
+}
+
+.record-button.recording {
+    background-color: #ef4444;
+    background-image: none;
+}
+
+.record-button.recording:hover {
+    background-color: #dc2626;
+    background-image: none;
+}
+
+.record-button.transcribing {
+    background-color: #7c3aed;
+    background-image: none;
+    opacity: 0.7;
+}
+
+/* Duration */
+.duration-label {
+    color: #a6adc8;
+    font-size: 22px;
+}
+
+/* Status */
+.status-label {
+    color: #6c7086;
+    font-size: 12px;
+}
+
+.section-label {
+    color: #a6adc8;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Text output */
+.output-scroll {
+    border: 1px solid #313244;
+    border-radius: 8px;
+    background-color: #181825;
+}
+
+.output-text,
+.output-text text {
+    background-color: #181825;
+    color: #cdd6f4;
+    font-size: 13px;
+}
+
+/* Action buttons */
+.action-button {
+    background-color: #313244;
+    background-image: none;
+    color: #a78bfa;
+    border: 1px solid #45475a;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.action-button:hover {
+    background-color: #45475a;
+    background-image: none;
+}
+
+.type-button {
+    background-color: #7c3aed;
+    background-image: none;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.type-button:hover {
+    background-color: #6d28d9;
+    background-image: none;
+}
+
+/* Separator */
+separator {
+    background-color: #313244;
+    min-height: 1px;
+}

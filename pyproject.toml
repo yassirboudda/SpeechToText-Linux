@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "speechtotext"
+version = "1.0.0"
+description = "Voxtral-powered speech-to-text with system tray integration"
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.28.0",
+    "PyGObject>=3.42.0",
+]
+
+[project.scripts]
+speechtotext = "speechtotext.main:main"
+
+[tool.setuptools.packages.find]
+include = ["speechtotext*"]
+
+[tool.setuptools.package-data]
+speechtotext = ["style.css"]

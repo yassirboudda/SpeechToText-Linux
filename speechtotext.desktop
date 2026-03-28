@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=SpeechToText
+Comment=Voxtral-powered speech transcription
+Exec=speechtotext
+Icon=speechtotext
+Type=Application
+Categories=Utility;Audio;
+Keywords=speech;voice;transcription;voxtral;
+StartupNotify=false
+X-GNOME-Autostart-enabled=true
