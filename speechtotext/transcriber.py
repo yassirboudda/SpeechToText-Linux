@@ -45,3 +45,29 @@ def transcribe(audio_path, api_key):
 
     result = response.json()
     return result.get('text', '').strip()
+
+
+def test_api_key(api_key):
+    """Test whether a Mistral API key is valid.
+
+    Makes a lightweight models-list request to verify credentials.
+    Returns (True, '') on success or (False, error_message) on failure.
+    """
+    try:
+        response = requests.get(
+            'https://api.mistral.ai/v1/models',
+            headers={'Authorization': f'Bearer {api_key}'},
+            timeout=10,
+        )
+        if response.status_code == 200:
+            return True, ''
+        elif response.status_code == 401:
+            return False, 'Invalid API key'
+        else:
+            return False, f'Unexpected status {response.status_code}'
+    except requests.exceptions.Timeout:
+        return False, 'Request timed out'
+    except requests.exceptions.ConnectionError:
+        return False, 'No internet connection'
+    except Exception as e:
+        return False, str(e)
