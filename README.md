@@ -1,14 +1,16 @@
-# SpeechToText
+# SpeechToText — Linux
 
-Voxtral-powered speech-to-text desktop app for Ubuntu with system tray integration.
+Voxtral-powered speech-to-text desktop app for Ubuntu/Linux with system tray integration.
 
 ## Features
 
-- **Record** audio from your microphone
-- **Transcribe** using Mistral's Voxtral speech-to-text model
-- **Copy** transcription to clipboard
-- **Type at cursor** — paste transcribed text wherever your mouse is
-- **System tray** indicator for quick access (like Diodon)
+- **System tray app** — lives in the Ubuntu indicator area (like Diodon)
+- **Record & transcribe** — one click to record, auto-transcribes when you stop
+- **Auto type at cursor** — transcription is automatically pasted where your cursor is (configurable)
+- **Auto copy to clipboard** — transcription is always copied to clipboard
+- **Visual editor** — optional floating editor to view/edit transcription
+- **API key management** — add/test/manage your Mistral API key from Settings
+- **2-minute recording limit** — optimized for Mistral's free tier
 - Dark modern UI
 
 ## Install
@@ -20,13 +22,9 @@ chmod +x install.sh
 
 ## Configuration
 
-Set your Mistral API key in `~/.config/speechtotext/config.json`:
+On first launch, you'll see only "🔑 Add API Key" in the tray menu. Click it to enter and test your Mistral API key.
 
-```json
-{
-  "mistral_api_key": "your-key-here"
-}
-```
+Config is stored at `~/.config/speechtotext/config.json`.
 
 ## Usage
 
@@ -34,6 +32,7 @@ Set your Mistral API key in `~/.config/speechtotext/config.json`:
 - Click the microphone button to record
 - Click again to stop and transcribe
 - Use **Copy** or **Type at Cursor** to use the text
+- Open **Settings** to manage API key and auto-type behavior
 
 ## Requirements
 
@@ -41,3 +40,8 @@ Set your Mistral API key in `~/.config/speechtotext/config.json`:
 - Python 3.10+
 - GStreamer, GTK 3, AyatanaAppIndicator3
 - xdotool (for type-at-cursor)
+
+## Other Platforms
+
+- [macOS version](https://github.com/bouddahami/SpeechToText-macOS)
+- [Windows version](https://github.com/bouddahami/SpeechToText-Windows)
