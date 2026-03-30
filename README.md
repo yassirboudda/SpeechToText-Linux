@@ -43,5 +43,5 @@ Config is stored at `~/.config/speechtotext/config.json`.
 
 ## Other Platforms
 
-- [macOS version](https://github.com/bouddahami/SpeechToText-macOS)
-- [Windows version](https://github.com/bouddahami/SpeechToText-Windows)
+- [macOS version](https://github.com/yassirboudda/SpeechToText-macOS)
+- [Windows version](https://github.com/yassirboudda/SpeechToText-Windows)
