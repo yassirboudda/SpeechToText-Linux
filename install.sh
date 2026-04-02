@@ -7,11 +7,22 @@ echo ""
 # System dependencies
 echo "[1/5] Installing system dependencies..."
 sudo apt-get update -qq
+
+GSTREAMER_GIR_PKG=""
+if apt-cache show gir1.2-gstreamer-1.0 >/dev/null 2>&1; then
+    GSTREAMER_GIR_PKG="gir1.2-gstreamer-1.0"
+elif apt-cache show gir1.2-gst-1.0 >/dev/null 2>&1; then
+    GSTREAMER_GIR_PKG="gir1.2-gst-1.0"
+else
+    echo "❌ Could not find a supported GStreamer GIR package (gir1.2-gstreamer-1.0 / gir1.2-gst-1.0)."
+    exit 1
+fi
+
 sudo apt-get install -y -qq \
     python3-gi \
     python3-gi-cairo \
     gir1.2-gtk-3.0 \
-    gir1.2-gst-1.0 \
+    "$GSTREAMER_GIR_PKG" \
     gir1.2-ayatanaappindicator3-0.1 \
     gstreamer1.0-plugins-base \
     gstreamer1.0-plugins-good \
@@ -23,7 +34,11 @@ sudo apt-get install -y -qq \
 # Install Python package
 echo "[2/5] Installing SpeechToText..."
 cd "$(dirname "$0")"
-pip3 install --user --break-system-packages . 2>/dev/null || pip3 install --user .
+if python3 -m pip install --help | grep -q -- "--break-system-packages"; then
+    python3 -m pip install --user --break-system-packages .
+else
+    python3 -m pip install --user .
+fi
 
 # Install icon
 echo "[3/5] Installing icon..."
