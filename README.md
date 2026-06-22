@@ -10,7 +10,7 @@ Voxtral-powered speech-to-text desktop app for Ubuntu/Linux with system tray int
 - **Auto copy to clipboard** — transcription is always copied to clipboard
 - **Visual editor** — optional floating editor to view/edit transcription
 - **API key management** — add/test/manage your Mistral API key from Settings
-- **2-minute recording limit** — optimized for Mistral's free tier
+- **1:10 recording limit** — optimized for Mistral's free tier
 - Dark modern UI
 
 ## Install
