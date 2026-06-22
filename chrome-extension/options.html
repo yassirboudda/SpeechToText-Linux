@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SpeechToText Settings</title>
+  <style>
+    body { font-family: Inter, system-ui, sans-serif; max-width: 640px; margin: 40px auto; padding: 0 16px; color: #1e293b; }
+    h1 { font-size: 24px; }
+    label { display: block; font-size: 12px; font-weight: 700; color: #64748b; margin-bottom: 6px; text-transform: uppercase; }
+    input[type=password], input[type=text] { width: 100%; padding: 10px; border-radius: 10px; border: 1.5px solid #e2e8f0; }
+    .panel { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 18px; margin: 16px 0; }
+    button { background: #4f46e5; color: white; border: 0; border-radius: 10px; padding: 10px 18px; font-weight: 700; cursor: pointer; }
+    .hint { font-size: 13px; color: #64748b; margin-top: 8px; }
+    .row { margin-bottom: 14px; }
+    #toast { color: #059669; font-weight: 700; margin-left: 10px; }
+  </style>
+</head>
+<body>
+  <h1>SpeechToText Settings</h1>
+  <p class="hint">Voxtral-powered speech-to-text for Chrome. A free Mistral API key is pre-configured.</p>
+
+  <div class="panel">
+    <div class="row">
+      <label>Mistral API Key</label>
+      <input type="password" id="apiKey" readonly value="●●●●●●●●●●●●●●●● (pre-configured)" />
+      <p class="hint">Pre-configured for free tier. Contact developer for a custom key.</p>
+    </div>
+    <div class="row">
+      <label><input type="checkbox" id="autoType" checked /> Auto-type transcription at cursor</label>
+      <p class="hint">When enabled, transcribed text is inserted into the focused input field on the active tab.</p>
+    </div>
+    <button id="testBtn">Test API Key</button>
+    <button id="saveBtn">Save</button>
+    <span id="toast"></span>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>
